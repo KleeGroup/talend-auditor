@@ -8,6 +8,7 @@ import com.kleegroup.talend.auditor.Util;
 
 public class TRunJobWarn extends AbstractNodeJobAnalyzerPlugin {
 	private final StringBuilder result = new StringBuilder();
+	private int nbWarn = 0;
 
 	@Override
 	public void analyzeNodeList(final List<Element> elemlist, final String jobName) {
@@ -24,12 +25,13 @@ public class TRunJobWarn extends AbstractNodeJobAnalyzerPlugin {
 		if (!transmitContext) {
 			final String compoName = Util.getCompoName(elem);
 			result.append("\n\t" + jobName + " - " + compoName + " : Le tRunJob ne transmets pas le contexte !");
+			nbWarn++;
 		}
 	}
 
 	@Override
 	public String getResults() {
-		return "Alertes concernant les tRunJob :" + result.toString();
+		return "Alertes concernant les tRunJob (" + nbWarn + ") :" + result.toString();
 	}
 
 }
