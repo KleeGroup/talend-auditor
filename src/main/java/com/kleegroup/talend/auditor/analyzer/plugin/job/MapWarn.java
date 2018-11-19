@@ -22,9 +22,7 @@ public class MapWarn extends AbstractNodeJobAnalyzerPlugin {
 	}
 
 	private void analyzeMap(final Element map, final String jobName) {
-		final String compoUniqueName = Util.getCompoParameterValue(map, "TEXT", "UNIQUE_NAME");
-		final String compoLabel = Util.getCompoParameterValue(map, "TEXT", "LABEL");
-		final String compoName = compoLabel == null ? compoUniqueName : compoLabel + "(" + compoUniqueName + ")";
+		final String compoName = Util.getCompoName(map);
 
 		final List<Element> outputTables = Util.nodeListToElementList(map.getElementsByTagName("outputTables"));
 		final List<Element> inputTables = Util.nodeListToElementList(map.getElementsByTagName("inputTables"));

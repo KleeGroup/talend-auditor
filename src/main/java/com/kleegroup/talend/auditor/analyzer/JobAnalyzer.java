@@ -26,6 +26,7 @@ import com.kleegroup.talend.auditor.analyzer.plugin.job.MapStats;
 import com.kleegroup.talend.auditor.analyzer.plugin.job.MapWarn;
 import com.kleegroup.talend.auditor.analyzer.plugin.job.OracleInputCursorStats;
 import com.kleegroup.talend.auditor.analyzer.plugin.job.SQLStats;
+import com.kleegroup.talend.auditor.analyzer.plugin.job.TRunJobWarn;
 import com.kleegroup.talend.auditor.talend.TalendItem;
 import com.kleegroup.talend.auditor.talend.TalendItemListing;
 
@@ -46,6 +47,7 @@ public class JobAnalyzer extends AbstractAnalyzer {
 		pluginList.add(new MapWarn());
 		pluginList.add(new SQLStats());
 		pluginList.add(new OracleInputCursorStats());
+		pluginList.add(new TRunJobWarn());
 		pluginList.add(new DicoPlugin());
 		pluginList.add(new JobHierarchyPlugin(til));
 	}

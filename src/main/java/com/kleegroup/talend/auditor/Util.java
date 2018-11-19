@@ -67,6 +67,12 @@ public class Util {
 		return compoParameter.getAttribute("value");
 	}
 
+	public static String getCompoName(final Element elem) {
+		final String compoUniqueName = getCompoParameterValue(elem, "TEXT", "UNIQUE_NAME");
+		final String compoLabel = getCompoParameterValue(elem, "TEXT", "LABEL");
+		return compoLabel == null ? compoUniqueName : compoLabel + "(" + compoUniqueName + ")";
+	}
+
 	public static List<Element> nodeListToElementList(final NodeList nodeList) {
 		final List<Element> elemList = new ArrayList<>(nodeList.getLength());
 		for (int i = 0; i < nodeList.getLength(); i++) {
